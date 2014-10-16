@@ -1,34 +1,46 @@
 module Nuwe
   module Admin
+    # Work with users who are not you.
     class User
 
-      attr_reader :id, :email, :bmi, :weight, :height, :bpm, :blood_pressure
+      class << self
 
-      def initialize(attributes)
-        @id = attributes["id"]
-        @email = attributes["email"]
-        @bmi = attributes["bmi"]
-        @weight = attributes["weight"]
-        @height = attributes["height"]
-        @bpm = attributes["bpm"]
-        @blood_pressure = attributes["blood_pressure"]
-      end
+        # Find a user with the given id.
+        def find(id)
+          response = conn.get do |request|
+            request.url "/v1/admin/users/#{id}.json"
+          end
 
-      def self.find(id)
-        conn = Faraday.new Nuwe.configuration.endpoint do |faraday|
-          faraday.response :logger
-          faraday.adapter Faraday.default_adapter
-          faraday.use FaradayMiddleware::ParseJson
+          Nuwe::User.new(response.body["user"])
         end
 
-        response = conn.get do |request|
-          request.url "/v1/admin/users/#{id}.json"
-          request.headers['Content-Type'] = 'application/json'
-          request.headers['Authorization'] = "Token token=\"#{Nuwe.configuration.token}\""
+        # Returns a paginated list of users.
+        def all
+          response = conn.get do |request|
+            request.url "/v1/admin/users.json"
+          end
+
+          response.body["users"].map {|attributes| Nuwe::User.new(attributes)}
         end
 
-        new(response.body["user"])
+        private
+
+        def conn
+          Faraday.new({
+            url: Nuwe.configuration.endpoint,
+            headers: {
+              'Content-Type' => 'application/json',
+              'Authorization' => "Token token=\"#{Nuwe.configuration.token}\""
+              }
+            }) do |faraday|
+            faraday.response :logger
+            faraday.adapter Faraday.default_adapter
+            faraday.use FaradayMiddleware::ParseJson
+          end
+        end
+
       end
+
     end
   end
 end

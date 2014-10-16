@@ -1,0 +1,50 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.nuapi.co/v1/users/4370.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.0
+      Content-Type:
+      - application/json
+      Authorization:
+      - Token token="65801fd1-3d94-4599-9d06-475b5ee01e28"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - '*/*'
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - 404 Not Found
+      Cache-Control:
+      - no-cache
+      X-Request-Id:
+      - 6e1a3bf3-a087-425b-b25c-de89e4ab0321
+      X-Runtime:
+      - '0.001696'
+      X-Powered-By:
+      - Phusion Passenger
+      Date:
+      - Thu, 16 Oct 2014 10:19:24 GMT
+      Server:
+      - nginx/1.6.1 + Phusion Passenger
+    body:
+      encoding: UTF-8
+      string: '{"error": {"message": "The URL you have requested was not found."}}'
+    http_version: 
+  recorded_at: Thu, 16 Oct 2014 10:18:42 GMT
+recorded_with: VCR 2.9.3

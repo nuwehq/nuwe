@@ -23,9 +23,19 @@ Or install it yourself as:
 
     $ gem install nuwe
 
-## Usage
+## Configuration
 
-TODO: Write usage instructions here
+Configure the gem with your API token:
+
+```
+Nuwe.configure do |c|
+  c.token = "8f399c4c-8bbf-4272-938e-f3e4123d194f"
+end
+```
+
+For Rails, you can put the above content in `config/initializers/nuwe.rb`.
+
+## Usage
 
 ## Contributing
 

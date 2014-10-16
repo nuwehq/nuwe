@@ -7,10 +7,10 @@ class UserTest < Minitest::Test
 
   def test_attributes
     VCR.use_cassette('one_user') do
-      user = Nuwe::Admin::User.find(4370)
+      user = Nuwe::Admin::User.find(13405)
       assert_equal Nuwe::Admin::User, user.class
 
-      assert_equal 4370, user.id
+      assert_equal 13405, user.id
       assert_equal "diamond.cummerata@corwin.net", user.email
       assert_equal "25.867545346578", user.bmi
       assert_equal "80000.0", user.weight

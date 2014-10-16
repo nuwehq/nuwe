@@ -15,19 +15,19 @@ module Nuwe
       end
 
       def self.find(id)
-        conn = Faraday.new url: "https://api.nuapi.co" do |faraday|
+        conn = Faraday.new Nuwe.configuration.endpoint do |faraday|
           faraday.response :logger
           faraday.adapter Faraday.default_adapter
           faraday.use FaradayMiddleware::ParseJson
         end
 
         response = conn.get do |request|
-          request.url "/v1/users/#{id}.json"
+          request.url "/v1/admin/users/#{id}.json"
           request.headers['Content-Type'] = 'application/json'
-          request.headers['Authorization'] = "Token token=\"65801fd1-3d94-4599-9d06-475b5ee01e28\""
+          request.headers['Authorization'] = "Token token=\"#{Nuwe.configuration.token}\""
         end
 
-        new(response.body)
+        new(response.body["user"])
       end
     end
   end

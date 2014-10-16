@@ -1,7 +1,7 @@
 module Nuwe
   module Admin
     # Work with users who are not you.
-    class User
+    class User < Nuwe::Base
 
       class << self
 
@@ -21,22 +21,6 @@ module Nuwe
           end
 
           response.body["users"].map {|attributes| Nuwe::User.new(attributes)}
-        end
-
-        private
-
-        def conn
-          Faraday.new({
-            url: Nuwe.configuration.endpoint,
-            headers: {
-              'Content-Type' => 'application/json',
-              'Authorization' => "Token token=\"#{Nuwe.configuration.token}\""
-              }
-            }) do |faraday|
-            faraday.response :logger
-            faraday.adapter Faraday.default_adapter
-            faraday.use FaradayMiddleware::ParseJson
-          end
         end
 
       end

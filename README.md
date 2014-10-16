@@ -37,6 +37,14 @@ For Rails, you can put the above content in `config/initializers/nuwe.rb`.
 
 ## Usage
 
+### Authentication
+
+```
+Nuwe::Auth.create "me@example.com", "supersecret"
+```
+
+Returns the user on success, and raises an error on failure.
+
 ## Contributing
 
 1. Fork it ( https://github.com/[my-github-username]/nuwe/fork )

@@ -1,0 +1,53 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://nuapi.dev/v1/auth.json
+    body:
+      encoding: UTF-8
+      string: '{"session":{"email":"me@example.com","password":"supersecret"}}'
+    headers:
+      Authorization:
+      - Token token="8f399c4c-8bbf-4272-938e-f3e4123d194f"
+      User-Agent:
+      - Faraday v0.9.0
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - '*/*'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - '"e53f1b457c6772fd877ab81f97a9b9b5"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Set-Cookie:
+      - request_method=POST; path=/
+      X-Request-Id:
+      - 2785999c-8955-4489-8bb2-a61a043d0180
+      X-Runtime:
+      - '0.147086'
+      Date:
+      - Thu, 16 Oct 2014 15:12:43 GMT
+      Connection:
+      - close
+    body:
+      encoding: UTF-8
+      string: '{"user":{"id":13406,"email":"me@example.com","measurements":{},"bmi":null,"weight":null,"height":null,"bpm":null,"blood_pressure":null,"nu_score":20,"biometric_score":{"score":null,"freshness":99},"activity_score":{"score":60,"freshness":98},"nutrition_score":{"score":null,"freshness":97},"nutrition":{"error":{"message":"User
+        13406 \u003cme@example.com\u003e has no DCN."}},"profile":{"first_name":null,"last_name":null,"sex":null,"birth_date":null,"activity":2,"facebook_id":"test345@gmail.com","avatar":{"tiny":"http://nuapi.dev/avatars/tiny/missing.png","small":"http://nuapi.dev/avatars/small/missing.png","medium":"http://nuapi.dev/avatars/medium/missing.png"},"time_zone":null},"tokens":[{"id":"ccadd384-db57-4423-bb02-36b45405690d","scope":"api","created_at":"2014-07-29T08:54:15.512Z"}],"preferences":[{"name":"units","value":"metric"}]}}'
+    http_version: 
+  recorded_at: Thu, 16 Oct 2014 15:12:44 GMT
+recorded_with: VCR 2.9.3

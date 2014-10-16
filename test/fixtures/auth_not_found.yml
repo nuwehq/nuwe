@@ -1,0 +1,50 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://nuapi.dev/v1/auth.json
+    body:
+      encoding: UTF-8
+      string: '{"session":{"email":"me@example.com","password":"ohnoesinvalid"}}'
+    headers:
+      Authorization:
+      - Token token="8f399c4c-8bbf-4272-938e-f3e4123d194f"
+      User-Agent:
+      - Faraday v0.9.0
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - '*/*'
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Content-Type:
+      - application/json; charset=utf-8
+      Cache-Control:
+      - no-cache
+      Set-Cookie:
+      - request_method=POST; path=/
+      X-Request-Id:
+      - 8e606a01-43e3-43f5-b2a2-f8cbba958700
+      X-Runtime:
+      - '0.086878'
+      Date:
+      - Thu, 16 Oct 2014 15:12:43 GMT
+      Connection:
+      - close
+    body:
+      encoding: UTF-8
+      string: '{"error":{"message":"Authorization failed"}}'
+    http_version: 
+  recorded_at: Thu, 16 Oct 2014 15:12:43 GMT
+recorded_with: VCR 2.9.3

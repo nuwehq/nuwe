@@ -2,6 +2,8 @@
 
 This gem wraps the [Nuwe API](https://api.nuapi.co/).
 
+[ ![Codeship Status for nuwehq/nuwe](https://www.codeship.io/projects/6d82f9d0-3777-0132-7181-4e7a21b2ccbb/status)](https://www.codeship.io/projects/41706)
+
 Nuwe is your digital wellness system for a better life.
 It understands the exercise you do, the food you eat, and the biometric data you create.
 Nuwe can intelligently combine them all into a single score and give you real-time decision-making support for your lifestyle.
